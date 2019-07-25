@@ -33,13 +33,25 @@ namespace FirstLab
 
             } while (!isStringOk);
 
+
+            FindMinMaxWithForLoop(intArray);
+            FindMinMaxWithDoWhileLoop(intArray);
+            FindMinMaxWithWhileLoop(intArray);
+
+
+            Console.ReadKey();
+        }
+
+        private static void FindMinMaxWithForLoop(int[] arr)
+        {
             int minIndex = 0;
             int maxIndex = 0;
-            int minValue = intArray[0];
-            int maxValue = intArray[0];
-            for (int i = 1; i < intArray.Length; i++)
+            int minValue = arr[0];
+            int maxValue = arr[0];
+
+            for (int i = 1; i < arr.Length; i++)
             {
-                int tValue = intArray[i];
+                int tValue = arr[i];
                 if (minValue > tValue)
                 {
                     minValue = tValue;
@@ -52,11 +64,75 @@ namespace FirstLab
                     maxIndex = i;
                 }
             }
-
+            Console.WriteLine("For loop:");
             Console.WriteLine("Minimum value is {0}, and index of minimum value is {1}", minValue, minIndex);
             Console.WriteLine("Maximum value is {0}, and index of maximum value is {1}", maxValue, maxIndex);
+            Console.WriteLine();
+        }
 
-            Console.ReadKey();
+        private static void FindMinMaxWithDoWhileLoop(int[] arr)
+        {
+            int minIndex = 0;
+            int maxIndex = 0;
+            int minValue = arr[0];
+            int maxValue = arr[0];
+            int i = 1;
+
+            do
+            {
+                int tValue = arr[i];
+                if (minValue > tValue)
+                {
+                    minValue = tValue;
+                    minIndex = i;
+                }
+
+                if (maxValue < tValue)
+                {
+                    maxValue = tValue;
+                    maxIndex = i;
+                }
+
+                i++;
+            } while (i < arr.Length);
+
+            Console.WriteLine("Do-While loop:");
+            Console.WriteLine("Minimum value is {0}, and index of minimum value is {1}", minValue, minIndex);
+            Console.WriteLine("Maximum value is {0}, and index of maximum value is {1}", maxValue, maxIndex);
+            Console.WriteLine();
+
+        }
+
+        private static void FindMinMaxWithWhileLoop(int[] arr)
+        {
+            int minIndex = 0;
+            int maxIndex = 0;
+            int minValue = arr[0];
+            int maxValue = arr[0];
+            int i = 1;
+
+            while (i < arr.Length)
+            {
+                int tValue = arr[i];
+                if (minValue > tValue)
+                {
+                    minValue = tValue;
+                    minIndex = i;
+                }
+
+                if (maxValue < tValue)
+                {
+                    maxValue = tValue;
+                    maxIndex = i;
+                }
+
+                i++;
+            }
+
+            Console.WriteLine("While loop:");
+            Console.WriteLine("Minimum value is {0}, and index of minimum value is {1}", minValue, minIndex);
+            Console.WriteLine("Maximum value is {0}, and index of maximum value is {1}", maxValue, maxIndex);
+            Console.WriteLine();
         }
     }
 }
